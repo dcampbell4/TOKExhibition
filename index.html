@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOK Exhibition Development Guide</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the Inter font and smooth transitions */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background-color: #60a5fa; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background-color: #e2e8f0; }
+        .phase-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+            padding: 0 1.5rem;
+        }
+        .phase-content.open {
+            max-height: 2000px; /* Large enough value to cover content */
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+        }
+        .rotate-180 {
+            transform: rotate(180deg);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-8 p-6 bg-white rounded-xl shadow-lg border-b-4 border-indigo-500">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-gray-800 tracking-tight">
+                TOK Exhibition Development Guide
+            </h1>
+            <p class="mt-2 text-lg text-gray-500">
+                Connect abstract TOK concepts to specific, real-world objects.
+            </p>
+        </header>
+
+        <div id="guide-container" class="space-y-6">
+
+            <!-- Phase 1: Establishing the Foundation (Prompt Selection) -->
+            <div id="phase-1" data-phase-id="1" class="phase bg-white rounded-xl shadow-md border-t-8 border-yellow-500">
+                <button onclick="togglePhase(1)" class="w-full flex justify-between items-center p-6 text-xl font-bold text-gray-700 hover:bg-yellow-50 transition-colors rounded-t-xl focus:outline-none">
+                    <span><span class="text-yellow-600 mr-3">1.</span> Establishing the Foundation (Prompt Selection)</span>
+                    <svg id="icon-1" class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="content-1" class="phase-content open">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Step 1.1: Choose Your Core Theme and Prompt</h3>
+                    <ol class="list-decimal list-inside space-y-3 pl-4 text-gray-600">
+                        <li>
+                            <p class="font-medium text-gray-700">Select a Theme:</p>
+                            <p>Choose the core theme ("Knowledge and the Knower") or one of the five optional themes (e.g., Knowledge and Language, Knowledge and Technology, etc.) that you find most engaging. This focus will help you narrow down your object search.</p>
+                        </li>
+                        <li>
+                            <p class="font-medium text-gray-700">Select an IA Prompt:</p>
+                            <p>Review the list of 35 IA prompts. <strong class="text-red-600">CRITICAL RULE:</strong> Select one prompt exactly as written. Do not change a single word.</p>
+                            <p class="mt-1 italic text-sm text-gray-500">**Tip:** A good prompt will allow you to explore a variety of perspectives and knowledge problems, not just provide a simple answer (e.g., "What makes a good explanation?").</p>
+                        </li>
+                    </ol>
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-4">Step 1.2: Define Your Focus</h3>
+                    <p class="text-gray-600 mb-4">Clearly articulate how you plan to interpret the prompt within your chosen theme. This will become the basis of your introduction.</p>
+                    <p class="p-3 bg-gray-100 border-l-4 border-gray-400 rounded-lg text-sm italic">
+                        <strong class="font-semibold text-gray-700">Example:</strong> If the prompt is "What role do experts play...", you might define the "role" as focusing on the importance of *immersion, collaboration, and objectivity* in the process of providing knowledge. This provides a clear roadmap.
+                    </p>
+                    <div class="mt-6 flex justify-end">
+                        <button onclick="nextPhase(1)" class="px-6 py-3 bg-yellow-600 text-white font-semibold rounded-lg shadow-md hover:bg-yellow-700 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50">
+                            Next Phase: Select Objects &rarr;
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Selecting and Contextualizing the Objects -->
+            <div id="phase-2" data-phase-id="2" class="phase bg-white rounded-xl shadow-md border-t-8 border-green-500">
+                <button onclick="togglePhase(2)" class="w-full flex justify-between items-center p-6 text-xl font-bold text-gray-700 hover:bg-green-50 transition-colors rounded-t-xl focus:outline-none">
+                    <span><span class="text-green-600 mr-3">2.</span> Selecting and Contextualizing the Objects</span>
+                    <svg id="icon-2" class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="content-2" class="phase-content">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Step 2.1: Identify Three Specific, Real-World Objects</h3>
+                    <ol class="list-decimal list-inside space-y-3 pl-4 text-gray-600">
+                        <li>
+                            <p class="font-medium text-gray-700">Specificity is Key:</p>
+                            <p>Your object cannot be a generic image. It must be a specific item that exists in a particular time and place.</p>
+                            <p class="p-2 bg-red-50 text-red-700 text-sm rounded-lg mt-1"><strong class="font-semibold">Good Example:</strong> *The dry-erase board used by Coach Smith during the 2024 regional championship game.*</p>
+                        </li>
+                        <li>
+                            <p class="font-medium text-gray-700">Real-World Context:</p>
+                            <p>For each object, clearly state its specific real-world context and where you encountered it. This is a top-band requirement in the rubric.</p>
+                        </li>
+                        <li>
+                            <p class="font-medium text-gray-700">Thematic Connection:</p>
+                            <p>Ensure your three objects are distinct but clearly relate to the chosen IA prompt AND the TOK theme. They should offer three different perspectives or facets of the same core knowledge problem.</p>
+                        </li>
+                    </ol>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-4">Step 2.2: Prepare Your Object Visuals</h3>
+                    <ul class="list-disc list-inside space-y-3 pl-4 text-gray-600">
+                        <li>
+                            <p><strong class="font-medium text-gray-700">Image:</strong> Get a high-quality image of the object.</p>
+                        </li>
+                        <li>
+                            <p><strong class="font-medium text-gray-700">Citation:</strong> Provide a reference for where the image was sourced.</p>
+                        </li>
+                        <li>
+                            <p><strong class="font-medium text-gray-700">Context Label:</strong> Write a brief, specific caption identifying the object and its real-world context (e.g., Object 1: Van de Graaff generator in Museu Catavento, São Paulo, Brazil).</p>
+                        </li>
+                    </ul>
+                    <div class="mt-6 flex justify-end">
+                        <button onclick="nextPhase(2)" class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+                            Next Phase: Draft Commentary &rarr;
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Drafting the Commentary (The Argument) -->
+            <div id="phase-3" data-phase-id="3" class="phase bg-white rounded-xl shadow-md border-t-8 border-blue-500">
+                <button onclick="togglePhase(3)" class="w-full flex justify-between items-center p-6 text-xl font-bold text-gray-700 hover:bg-blue-50 transition-colors rounded-t-xl focus:outline-none">
+                    <span><span class="text-blue-600 mr-3">3.</span> Drafting the Commentary (The Argument)</span>
+                    <svg id="icon-3" class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="content-3" class="phase-content">
+                    <p class="text-gray-600 mb-4">Your commentary is a **950-word maximum** essay that articulates a clear argument.</p>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Step 3.1: Write the Introduction (approx. 100 words)</h3>
+                    <ul class="list-disc list-inside space-y-1 pl-4 text-gray-600">
+                        <li>State the IA prompt exactly.</li>
+                        <li>State the TOK theme you are addressing (e.g., Knowledge and Politics).</li>
+                        <li>Briefly outline the main focus or interpretation of the prompt.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-4">Step 3.2: Write the Three Object Justifications (approx. 250-300 words each)</h3>
+                    <ol class="list-decimal list-inside space-y-4 pl-4 text-gray-600">
+                        <li>
+                            <p><strong class="font-medium text-gray-700">Describe the Object & Context:</strong> Briefly introduce the image and its specific real-world context.</p>
+                        </li>
+                        <li>
+                            <p><strong class="font-medium text-gray-700">Establish the Link:</strong> Explicitly and clearly state the link between the specific object and the selected IA prompt.</p>
+                        </li>
+                        <li>
+                            <p><strong class="font-medium text-gray-700">Develop the TOK Argument:</strong> Use TOK concepts (e.g., **justification, evidence, certainty, perspective, interpretation, language, values**) to explain *how* this object sheds light on the prompt.</p>
+                            <p class="mt-1 italic text-sm text-gray-500">**Focus:** The commentary must be an *explanation* of the knowledge question, not just a description of the object.</p>
+                        </li>
+                        <li>
+                            <p><strong class="font-medium text-gray-700">Support with Evidence/References:</strong> All arguments must be supported by appropriate evidence and direct, explicit references back to the wording of the IA prompt.</p>
+                        </li>
+                    </ol>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-4">Step 3.3: Write the Conclusion (Omitted in the final submission)</h3>
+                    <p class="p-3 bg-blue-50 text-blue-700 rounded-lg text-sm italic border-l-4 border-blue-400">
+                        <strong class="font-semibold text-blue-800">Note:</strong> The final 950-word exhibition **does not have a separate conclusion**. The final object justification simply ends the argument. Ensure the argument feels complete by the end of the third object.
+                    </p>
+                    <div class="mt-6 flex justify-end">
+                        <button onclick="nextPhase(3)" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                            Next Phase: Review & Refinement &rarr;
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: Review and Refinement -->
+            <div id="phase-4" data-phase-id="4" class="phase bg-white rounded-xl shadow-md border-t-8 border-red-500">
+                <button onclick="togglePhase(4)" class="w-full flex justify-between items-center p-6 text-xl font-bold text-gray-700 hover:bg-red-50 transition-colors rounded-t-xl focus:outline-none">
+                    <span><span class="text-red-600 mr-3">4.</span> Review and Refinement (Rubric Check)</span>
+                    <svg id="icon-4" class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="content-4" class="phase-content">
+                    <p class="text-gray-600 mb-6">Use the `ToK Exhibition Rubric` to check your work against the highest band (9–10). Every point below is mandatory for a top score.</p>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200 rounded-lg overflow-hidden">
+                            <thead class="bg-red-100">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-red-700 uppercase tracking-wider">
+                                        Rubric Checkpoint
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-red-700 uppercase tracking-wider">
+                                        Your Exhibition Must...
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-red-700 uppercase tracking-wider w-20">
+                                        Self-Check
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200 text-gray-700">
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Objects & Context</td>
+                                    <td class="px-6 py-4">Clearly identify three objects and their <strong class="text-red-600">specific real-world contexts</strong>.</td>
+                                    <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox" class="h-5 w-5 text-red-600 rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Links</td>
+                                    <td class="px-6 py-4">Clearly and *well-explain* the links between <strong class="text-red-600">each</strong> object and the IA prompt.</td>
+                                    <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox" class="h-5 w-5 text-red-600 rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Justification</td>
+                                    <td class="px-6 py-4">Provide a <strong class="text-red-600">strong justification</strong> of the particular *contribution* each object makes to the overall argument.</td>
+                                    <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox" class="h-5 w-5 text-red-600 rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">TOK Language</td>
+                                    <td class="px-6 py-4">Be lucid, precise, and focused, using TOK concepts to develop the argument.</td>
+                                    <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox" class="h-5 w-5 text-red-600 rounded"></td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap font-medium">Word Count</td>
+                                    <td class="px-6 py-4">Be <strong class="text-red-600">950 words maximum</strong> (excluding captions, citations, and bibliography).</td>
+                                    <td class="px-6 py-4 whitespace-nowrap"><input type="checkbox" class="h-5 w-5 text-red-600 rounded"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-8 p-4 bg-gray-100 rounded-lg text-center">
+                        <p class="text-lg font-semibold text-gray-800">You've reached the end of the guide!</p>
+                        <p class="text-gray-600 mt-2">Your goal is to clearly show the examiner that you can see **Theory of Knowledge operating in the real world**.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Set the first phase as open on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstContent = document.getElementById('content-1');
+            const firstIcon = document.getElementById('icon-1');
+            if (firstContent) {
+                firstContent.classList.add('open');
+                firstIcon.classList.add('rotate-180');
+            }
+            // Ensure only the first phase is open initially
+            for (let i = 2; i <= 4; i++) {
+                const content = document.getElementById(`content-${i}`);
+                const icon = document.getElementById(`icon-${i}`);
+                if (content && content.classList.contains('open')) {
+                    content.classList.remove('open');
+                    icon.classList.remove('rotate-180');
+                }
+            }
+        });
+
+
+        /**
+         * Toggles the open/closed state of a specific phase (accordion).
+         * @param {number} phaseId - The ID of the phase to toggle (1-4).
+         */
+        function togglePhase(phaseId) {
+            const content = document.getElementById(`content-${phaseId}`);
+            const icon = document.getElementById(`icon-${phaseId}`);
+
+            if (content.classList.contains('open')) {
+                // Close it
+                content.classList.remove('open');
+                icon.classList.remove('rotate-180');
+            } else {
+                // Close all others and open this one
+                closeAllPhases();
+                content.classList.add('open');
+                icon.classList.add('rotate-180');
+            }
+        }
+
+        /**
+         * Closes all phase content areas.
+         */
+        function closeAllPhases() {
+            for (let i = 1; i <= 4; i++) {
+                const content = document.getElementById(`content-${i}`);
+                const icon = document.getElementById(`icon-${i}`);
+                if (content) {
+                    content.classList.remove('open');
+                    icon.classList.remove('rotate-180');
+                }
+            }
+        }
+
+        /**
+         * Closes the current phase and automatically opens and scrolls to the next one.
+         * @param {number} currentPhaseId - The ID of the phase being completed (1-3).
+         */
+        function nextPhase(currentPhaseId) {
+            const nextPhaseId = currentPhaseId + 1;
+
+            if (nextPhaseId <= 4) {
+                // 1. Close the current phase
+                const currentContent = document.getElementById(`content-${currentPhaseId}`);
+                const currentIcon = document.getElementById(`icon-${currentPhaseId}`);
+                currentContent.classList.remove('open');
+                currentIcon.classList.remove('rotate-180');
+
+                // 2. Open the next phase
+                const nextPhaseElement = document.getElementById(`phase-${nextPhaseId}`);
+                const nextContent = document.getElementById(`content-${nextPhaseId}`);
+                const nextIcon = document.getElementById(`icon-${nextPhaseId}`);
+
+                if (nextContent) {
+                    closeAllPhases(); // Just in case, ensure clean slate
+                    nextContent.classList.add('open');
+                    nextIcon.classList.add('rotate-180');
+
+                    // 3. Scroll to the next phase element
+                    nextPhaseElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            } else {
+                // If it's the last step (Phase 4), just scroll to the top of the guide.
+                document.getElementById('guide-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>
