@@ -26,6 +26,16 @@
             max-height: 2000px; /* Large enough value to cover content */
             padding: 1rem 1.5rem 1.5rem 1.5rem;
         }
+        .sub-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+            padding: 0 1rem;
+        }
+        .sub-content.open {
+            max-height: 1500px; /* Large enough value for the list of prompts */
+            padding: 1rem;
+        }
         .rotate-180 {
             transform: rotate(180deg);
         }
@@ -64,18 +74,92 @@
                 </button>
                 <div id="content-1" class="phase-content open">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Step 1.1: Choose Your Core Theme and Prompt</h3>
+                    
+                    <p class="text-gray-600 mb-3">You must ground your exhibition in one of the following TOK themes. Choosing one helps narrow your focus and ensures TOK relevance:</p>
+
+                    <!-- Themes Table/List -->
+                    <div class="bg-yellow-50 p-4 rounded-lg mb-6 border border-yellow-200">
+                        <p class="font-bold text-yellow-800 mb-2">Core Themes & Sample KQs</p>
+                        <ul class="space-y-2 text-sm text-yellow-700">
+                            <li class="p-2 bg-yellow-100 rounded">
+                                <strong class="font-semibold">Knowledge and the Knower:</strong> *What motivates the pursuit of knowledge?*
+                            </li>
+                            <li class="p-2 bg-yellow-100 rounded">
+                                <strong class="font-semibold">Knowledge and Language:</strong> *To what extent does language allow us to make our private experiences public?*
+                            </li>
+                            <li class="p-2 bg-yellow-100 rounded">
+                                <strong class="font-semibold">Knowledge and Technology:</strong> *In what sense, if any, can a machine be said to know something?*
+                            </li>
+                            <li class="p-2 bg-yellow-100 rounded">
+                                <strong class="font-semibold">Knowledge and Politics:</strong> *How might knowledge reflect or perpetuate existing power structures?*
+                            </li>
+                            <li class="p-2 bg-yellow-100 rounded">
+                                <strong class="font-semibold">Knowledge and Religion:</strong> *Is faith a prerequisite for religious knowledge?*
+                            </li>
+                            <li class="p-2 bg-yellow-100 rounded">
+                                <strong class="font-semibold">Knowledge and Indigenous Societies:</strong> *What role do objects and artifacts play in the construction and sharing of knowledge?*
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Step 1.2: Select an IA Prompt</h3>
                     <ol class="list-decimal list-inside space-y-3 pl-4 text-gray-600">
                         <li>
-                            <p class="font-medium text-gray-700">Select a Theme:</p>
-                            <p>Choose the core theme ("Knowledge and the Knower") or one of the five optional themes (e.g., Knowledge and Language, Knowledge and Technology, etc.) that you find most engaging. This focus will help you narrow down your object search.</p>
-                        </li>
-                        <li>
                             <p class="font-medium text-gray-700">Select an IA Prompt:</p>
-                            <p>Review the list of 35 IA prompts. <strong class="text-red-600">CRITICAL RULE:</strong> Select one prompt exactly as written. Do not change a single word.</p>
+                            <p>Review the list of 35 IA prompts below. <strong class="text-red-600">CRITICAL RULE:</strong> Select one prompt exactly as written. Do not change a single word.</p>
                             <p class="mt-1 italic text-sm text-gray-500">**Tip:** A good prompt will allow you to explore a variety of perspectives and knowledge problems, not just provide a simple answer (e.g., "What makes a good explanation?").</p>
                         </li>
                     </ol>
-                    <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-4">Step 1.2: Define Your Focus</h3>
+
+                    <!-- Nested Collapsible for 35 IA Prompts -->
+                    <div class="mt-4 mb-4 border border-gray-300 rounded-lg overflow-hidden">
+                        <button onclick="toggleSubAccordion('ia-prompts')" class="w-full flex justify-between items-center p-4 text-lg font-medium text-indigo-700 bg-indigo-50 hover:bg-indigo-100 transition-colors focus:outline-none">
+                            <span>Click to View the Full List of 35 IA Prompts</span>
+                            <svg id="sub-icon-ia-prompts" class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="sub-content-ia-prompts" class="sub-content">
+                            <ul class="list-none space-y-2 text-sm text-gray-700 p-2">
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">1. What counts as knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">2. Are some types of knowledge more useful than others?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">3. What features of knowledge have an impact on its reliability?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">4. On what grounds might we doubt a claim?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">5. What counts as good evidence for a claim?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">6. How does the way that we organize or classify knowledge affect what we know?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">7. What are the implications of having, or not having, knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">8. To what extent is certainty attainable?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">9. Are some types of knowledge less open to interpretation than others?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">10. What challenges are raised by the dissemination and/or communication of knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">11. Can new knowledge change established values or beliefs?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">12. Is bias inevitable in the production of knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">13. How can we know that current knowledge is an improvement upon past knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">14. Does some knowledge belong only to particular communities of knowers?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">15. What constraints are there on the pursuit of knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">16. Should some knowledge not be sought on ethical grounds?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">17. Why do we seek knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">18. Are some things unknowable?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">19. What counts as a good justification for a claim?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">20. What is the relationship between personal experience and knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">21. What is the relationship between knowledge and culture?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">22. What role do experts play in influencing our consumption or acquisition of knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">23. How important are the material tools of knowledge in shaping what we know?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">24. How might the context in which knowledge is presented influence whether it is accepted or rejected?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">25. What is the relationship between knowledge and wisdom?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">26. What role does imagination play in the production of knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">27. How does the language used to present knowledge influence how it is perceived?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">28. Is there a difference between having knowledge and understanding it?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">29. What is the relationship between knowledge and belief?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">30. Does all knowledge impose a responsibility?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">31. What is the relationship between personal and shared knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">32. What makes a good explanation?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">33. To what extent is the knowledge we produce determined by the methods of collection and analysis?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">34. How do metaphors and analogies influence the construction of knowledge?</li>
+                                <li class="p-2 bg-white rounded shadow-sm hover:bg-gray-50 transition-colors">35. Are there limits to what we can know?</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-4">Step 1.3: Define Your Focus</h3>
                     <p class="text-gray-600 mb-4">Clearly articulate how you plan to interpret the prompt within your chosen theme. This will become the basis of your introduction.</p>
                     <p class="p-3 bg-gray-100 border-l-4 border-gray-400 rounded-lg text-sm italic">
                         <strong class="font-semibold text-gray-700">Example:</strong> If the prompt is "What role do experts play...", you might define the "role" as focusing on the importance of *immersion, collaboration, and objectivity* in the process of providing knowledge. This provides a clear roadmap.
@@ -88,7 +172,7 @@
                 </div>
             </div>
 
-            <!-- Phase 2: Selecting and Contextualizing the Objects -->
+            <!-- Phase 2: Selecting and Contextualizing the Objects (Unchanged) -->
             <div id="phase-2" data-phase-id="2" class="phase bg-white rounded-xl shadow-md border-t-8 border-green-500">
                 <button onclick="togglePhase(2)" class="w-full flex justify-between items-center p-6 text-xl font-bold text-gray-700 hover:bg-green-50 transition-colors rounded-t-xl focus:outline-none">
                     <span><span class="text-green-600 mr-3">2.</span> Selecting and Contextualizing the Objects</span>
@@ -132,7 +216,7 @@
                 </div>
             </div>
 
-            <!-- Phase 3: Drafting the Commentary (The Argument) -->
+            <!-- Phase 3: Drafting the Commentary (The Argument) (Unchanged) -->
             <div id="phase-3" data-phase-id="3" class="phase bg-white rounded-xl shadow-md border-t-8 border-blue-500">
                 <button onclick="togglePhase(3)" class="w-full flex justify-between items-center p-6 text-xl font-bold text-gray-700 hover:bg-blue-50 transition-colors rounded-t-xl focus:outline-none">
                     <span><span class="text-blue-600 mr-3">3.</span> Drafting the Commentary (The Argument)</span>
@@ -148,7 +232,7 @@
                         <li>Briefly outline the main focus or interpretation of the prompt.</li>
                     </ul>
 
-                    <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-4">Step 3.2: Write the Three Object Justifications (approx. 250-300 words each)</h3>
+                    <h3 class="2xl font-semibold text-gray-800 mt-6 mb-4">Step 3.2: Write the Three Object Justifications (approx. 250-300 words each)</h3>
                     <ol class="list-decimal list-inside space-y-4 pl-4 text-gray-600">
                         <li>
                             <p><strong class="font-medium text-gray-700">Describe the Object & Context:</strong> Briefly introduce the image and its specific real-world context.</p>
@@ -177,7 +261,7 @@
                 </div>
             </div>
 
-            <!-- Phase 4: Review and Refinement -->
+            <!-- Phase 4: Review and Refinement (Unchanged) -->
             <div id="phase-4" data-phase-id="4" class="phase bg-white rounded-xl shadow-md border-t-8 border-red-500">
                 <button onclick="togglePhase(4)" class="w-full flex justify-between items-center p-6 text-xl font-bold text-gray-700 hover:bg-red-50 transition-colors rounded-t-xl focus:outline-none">
                     <span><span class="text-red-600 mr-3">4.</span> Review and Refinement (Rubric Check)</span>
@@ -281,7 +365,7 @@
         }
 
         /**
-         * Closes all phase content areas.
+         * Closes all main phase content areas.
          */
         function closeAllPhases() {
             for (let i = 1; i <= 4; i++) {
@@ -324,6 +408,23 @@
             } else {
                 // If it's the last step (Phase 4), just scroll to the top of the guide.
                 document.getElementById('guide-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        /**
+         * Toggles a sub-accordion element (like the 35 KQs list).
+         * @param {string} id - The base ID of the sub-accordion (e.g., 'ia-prompts').
+         */
+        function toggleSubAccordion(id) {
+            const content = document.getElementById(`sub-content-${id}`);
+            const icon = document.getElementById(`sub-icon-${id}`);
+
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                icon.classList.remove('rotate-180');
+            } else {
+                content.classList.add('open');
+                icon.classList.add('rotate-180');
             }
         }
     </script>
